@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Norven Media</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- GRID BACKGROUND -->
+    <div class="grid-wrapper">
+        <div class="grid-background"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">NORVEN<span>MEDIA</span></div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get In
+            Touch</button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-left">
+                <h1>Creative Studio For Branding, Marketing, And Digital Growth</h1>
+            </div>
+            <div class="hero-right">
+                <div class="hero-form-card">
+                    <h3 class="form-title">Get In Touch</h3>
+                    <p class="form-subtitle">Tell us about your project and we'll get back to you.</p>
+                    <form action="https://formspree.io/f/YOUR_ID" method="POST" class="contact-form">
+                        <input type="text" name="name" placeholder="Name" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="text" name="service" placeholder="Service Required">
+                        <textarea name="message" placeholder="Message" required></textarea>
+                        <button type="submit">Send Enquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+        <div class="section-titlebar">
+            <div class="titlebar-title">Our Services</div>
+        </div>
+        <div class="section-body">
+            <p class="services-subtitle">Everything your brand needs to grow, stand out, and convert — all under one
+                roof.</p>
+            <div class="services-grid">
+                <div class="cell">
+                    <div class="cell-header">
+                        <div class="cell-check"></div>
+                        <h3>Social Media Management & Optimization</h3>
+                    </div>
+                    <p>Consistent posting, community engagement, and platform strategy across all channels.</p>
+                </div>
+                <div class="cell">
+                    <div class="cell-header">
+                        <div class="cell-check"></div>
+                        <h3>Content Strategy & Digital Marketing</h3>
+                    </div>
+                    <p>Data-backed content plans that attract, engage, and convert your target audience.</p>
+                </div>
+                <div class="cell">
+                    <div class="cell-header">
+                        <div class="cell-check"></div>
+                        <h3>Growth Marketing & Audience Expansion</h3>
+                    </div>
+                    <p>Scalable growth tactics to grow your reach and turn followers into loyal customers.</p>
+                </div>
+                <div class="cell">
+                    <div class="cell-header">
+                        <div class="cell-check"></div>
+                        <h3>Search Engine Optimization (SEO) & Visibility Growth</h3>
+                    </div>
+                    <p>Rank higher, get discovered faster, and drive organic traffic that compounds over time.</p>
+                </div>
+                <div class="cell">
+                    <div class="cell-header">
+                        <div class="cell-check"></div>
+                        <h3>Video Production & Visual Content Creation</h3>
+                    </div>
+                    <p>Reels, short-form videos, and scroll-stopping visuals built for modern platforms.</p>
+                </div>
+                <div class="cell">
+                    <div class="cell-header">
+                        <div class="cell-check"></div>
+                        <h3>Web & Mobile Application Development</h3>
+                    </div>
+                    <p>Clean, fast, and functional digital products designed to perform and impress.</p>
+                </div>
+                <div class="cell">
+                    <div class="cell-header">
+                        <div class="cell-check"></div>
+                        <h3>WhatsApp Automation & AI Chatbot Solutions</h3>
+                    </div>
+                    <p>Smart automation that handles inquiries, nurtures leads, and saves your team time.</p>
+                </div>
+                <div class="cell">
+                    <div class="cell-header">
+                        <div class="cell-check"></div>
+                        <h3>Digital Branding & Identity Design</h3>
+                    </div>
+                    <p>Logos, brand systems, and visual identities that make you instantly recognizable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+        <div class="section-titlebar">
+            <div class="titlebar-title">Contact</div>
+        </div>
+        <div class="section-body">
+            <div class="contact-grid">
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:hello@norvenmedia.com" class="contact-value">hello@norvenmedia.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Phone</span>
+                        <a href="tel:+1234567890" class="contact-value">+1 234 567 890</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Instagram</span>
+                        <a href="https://instagram.com/norvenmedia" target="_blank"
+                            class="contact-value">@norvenmedia</a>
+                    </div>
+                </div>
+                <div class="contact-insta-preview">
+                    <img src="images/image.png" alt="Instagram Page" class="insta-screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bottom-text">
+        Minimal. Fast. Modern. Inspired by next-gen AI interfaces.
+    </footer>
+
+</body>
+
+</html>
