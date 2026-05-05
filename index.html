@@ -1280,7 +1280,7 @@
                         </div>
                         <div class="contact-item-text">
                             <span class="contact-label">Email</span>
-                            <a href="mailto:hello@norvenmedia.com" class="contact-value">hello@norvenmedia.com</a>
+                            <a href="mailto:norven.media@gmail.com" class="contact-value">norven.media@gmail.com</a>
                         </div>
                     </div>
 
@@ -1295,7 +1295,7 @@
                         </div>
                         <div class="contact-item-text">
                             <span class="contact-label">Phone</span>
-                            <a href="tel:+1234567890" class="contact-value">+1 234 567 890</a>
+                            <a href="tel:+918925426667" class="contact-value">+91 89254 26667</a>
                         </div>
                     </div>
 
@@ -1310,8 +1310,8 @@
                         </div>
                         <div class="contact-item-text">
                             <span class="contact-label">Instagram</span>
-                            <a href="https://instagram.com/norvenmedia" target="_blank"
-                                class="contact-value">@norvenmedia</a>
+                            <a href="https://instagram.com/norven.media" target="_blank"
+                                class="contact-value">@norven.media</a>
                         </div>
                     </div>
                 </div>
@@ -1320,7 +1320,7 @@
 
         <div class="contact-footer-bar">
             <span class="footer-logo">NORVEN<span>MEDIA</span></span>
-            <span class="footer-copy">© 2025 Norven Media. All rights reserved.</span>
+            <span class="footer-copy">© 2026 Norven Media. All rights reserved.</span>
         </div>
     </section>
 
@@ -1332,11 +1332,22 @@
         const iconMuted = document.getElementById('iconMuted');
         const iconSound = document.getElementById('iconSound');
 
-        // Videos start muted (required for browser autoplay policy)
+        let currentSrc = null;
+
+        // Start muted
         mainVideo.muted = true;
 
+        // PLAY / PAUSE
         function togglePlay() {
-            if (!mainVideo.src || mainVideo.error) return;
+            if (!currentSrc) {
+                // Load first thumbnail automatically
+                const firstThumb = document.querySelector('.video-thumb');
+
+                if (firstThumb) {
+                    loadVideo(firstThumb);
+                }
+            }
+
             if (mainVideo.paused) {
                 mainVideo.play();
                 mainPlayer.classList.add('playing');
@@ -1346,8 +1357,18 @@
             }
         }
 
+        // LOAD VIDEO FUNCTION (new)
+        function loadVideo(el) {
+            currentSrc = el.dataset.src;
+            mainVideo.src = currentSrc;
+            mainVideo.load();
+            mainTitle.textContent = el.dataset.title;
+        }
+
+        // MUTE
         function toggleMute() {
             mainVideo.muted = !mainVideo.muted;
+
             if (mainVideo.muted) {
                 iconMuted.style.display = '';
                 iconSound.style.display = 'none';
@@ -1361,13 +1382,14 @@
             }
         }
 
-        // Click on the video itself also toggles play
+        // CLICK VIDEO TO PLAY
         mainVideo.addEventListener('click', togglePlay);
 
         mainVideo.addEventListener('ended', () => {
             mainPlayer.classList.remove('playing');
         });
 
+        // SELECT VIDEO
         function selectVideo(index, el) {
             const wasMuted = mainVideo.muted;
 
@@ -1377,22 +1399,28 @@
             document.querySelectorAll('.video-thumb').forEach(t => t.classList.remove('active'));
             el.classList.add('active');
 
-            mainVideo.src = el.dataset.src;
-            mainVideo.load();
-            mainVideo.muted = wasMuted;
-            mainTitle.textContent = el.dataset.title;
+            loadVideo(el);
 
-            // Reset placeholder visibility
-            const placeholder = mainPlayer.querySelector('.video-placeholder');
-            mainVideo.style.display = '';
-            placeholder.style.display = 'none';
+            mainVideo.muted = wasMuted;
         }
 
-        // Hover preview on thumbnails (always muted)
+        // THUMBNAIL HOVER PREVIEW (lightweight)
         document.querySelectorAll('.video-thumb video').forEach(v => {
             const thumb = v.closest('.video-thumb');
-            thumb.addEventListener('mouseenter', () => { v.currentTime = 0; v.play().catch(() => { }); });
-            thumb.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
+
+            thumb.addEventListener('mouseenter', () => {
+                v.currentTime = 0;
+                v.play().catch(() => { });
+            });
+
+            thumb.addEventListener('mouseleave', () => {
+                v.pause();
+                v.currentTime = 0;
+            });
+        });
+        window.addEventListener("load", () => {
+            const firstThumb = document.querySelector('.video-thumb');
+            if (firstThumb) loadVideo(firstThumb);
         });
     </script>
 
